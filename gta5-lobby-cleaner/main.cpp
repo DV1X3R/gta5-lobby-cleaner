@@ -60,6 +60,7 @@ DWORD GetFirstProcessID(TCHAR* cName)
 		{
 			_tprintf(TEXT("%i %s (%d threads)\n")
 				, pe32.th32ProcessID, pe32.szExeFile, pe32.cntThreads);
+			CloseHandle(hProcessSnap);
 			return pe32.th32ProcessID;
 		}
 	} while (Process32Next(hProcessSnap, &pe32));
